@@ -9,7 +9,7 @@ const cors = require("cors");
 
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const formRouter = require('./routes/form');
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/send', formRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,29 +49,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: 'smtp.gmail.com',
-  port:465,
-  secure:true,
-  // logger: true,
-  // debug: true,
-  // secureConnection: false,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASS
-  }, 
-  tls:{
-    rejectUnauthorized:false
-  }
-});
-
-transporter.verify(function (error, success) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take our messages");
-  }
-});
 
 module.exports = app;
