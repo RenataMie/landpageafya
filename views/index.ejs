@@ -90,7 +90,7 @@
 									<h3>Marcos Alves</h3>
 									<p>Front End</p>
 
-                                    <ul class="icons">
+                                    <ul class="actions special icons">
                                         <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
                                         <li><a href="https://github.com/mlamarques" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
                                     </ul>
@@ -102,7 +102,7 @@
 									<p>Front End</p>
 
                                     <ul class="icons">
-                                        <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                                        <li><a href="#" class="icon brands alt fa-linkedin-in" aria-hidden="true"></a></li>
                                         <li><a href="https://github.com/vinicius-carvalho" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
                                     </ul>
 								</section>
@@ -112,7 +112,7 @@
 									<p>Front End</p>
 
                                     <ul class="icons">
-                                        <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                                        <li><a href="#" class="icon brands alt fa-linkedin-in"></a></li>
                                         <li><a href="https://github.com/micheleset7" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
                                     </ul>
 								</section>
@@ -163,11 +163,11 @@
 							<h2>Tem alguma dúvida, elogio ou comentário?</h2>
 							<p>Mande seu recado pra gente</p>
 						</header>
-						<form method="post" action="mailto:renata_mie@hotmail.com" class="cta">
+						<form id="contact-form" method="post" action="send" class="cta" enctype="multipart/form-data">
 							<div class="row gtr-uniform gtr-50">
 								<div class="col-12 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Seu email" /></div>
-                                <div class="col-12 col-12-xsmall"><input type="text" name="email" id="email" placeholder="Seu nome" /></div>
-                                <div class="col-12 col-12-xsmall"><textarea type="text" name="email" id="email" placeholder="Sua mensagem"></textarea></div>
+                                <div class="col-12 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Seu nome" /></div>
+                                <div class="col-12 col-12-xsmall"><textarea type="text" name="message" id="message" placeholder="Sua mensagem"></textarea></div>
 								<div class="col-12 col-12-xsmall"><input type="submit" value="Enviar" class="fit primary" /></div>
 							</div>
 						</form>
@@ -195,7 +195,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-            <script src="js/form.js"></script>
+            <script src="assets/js/form.js"></script>
 
 	</body>
 </html>

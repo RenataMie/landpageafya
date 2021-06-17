@@ -2412,113 +2412,134 @@ input, select, textarea {
 
 /* Icon */
 
+	ul.icons li a.icon:hover:before {
+		color: #e44c65;
+		text-shadow: 1px 0 0 #e44c65, -1px 0 0 #e44c65, 0 1px 0 #e44c65, 0 -1px 0 #e44c65;
+	}
+
+
+	.fa:hover + .iconß{
+		color: #e44c65 !important;
+	}
+
+	.icon:hover{
+		color: #e44c65 !important;
+	}
+
 	.icon {
-		text-decoration: none;
+		/* text-decoration: none; */
 		border-bottom: none;
 		position: relative;
 	}
 
-		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			display: inline-block;
-			font-style: normal;
-			font-variant: normal;
-			text-rendering: auto;
-			line-height: 1;
-			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
-			font-weight: 400;
-		}
+	.fa-linkedin-in:before:hover{
+		color: #e44c65 !important;
+	}
 
-		.icon > .label {
-			display: none;
-		}
+	.fa-linkedin-in:before:hover{
+		color: #e44c65 !important;
+	}
 
-		.icon:before {
-			line-height: inherit;
-		}
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		/* text-transform: none !important; */
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
 
-		.icon:hover {
-			color: #e44c65 !important;
-		}
+	.icon > .label {
+		display: none;
+	}
 
-		.icon.solid:before {
-			font-weight: 900 !important;
-		}
-
-		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands' !important;
-		}
-
-		.icon.brands:hover {
-			color: #e44c65 !important;
-		}
-
-		.icon.alt {
-			text-decoration: none;
-		}
-
-			.icon.alt:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				display: inline-block;
-				font-style: normal;
-				font-variant: normal;
-				text-rendering: auto;
-				line-height: 1;
-				text-transform: none;
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 400;
-			}
-
-			.icon.alt:before {
-				color: #1c1d26 ;
-				text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
-			}
+	.icon:before {
+		line-height: inherit;
+	}
 
 
-		.icon.major {
-			background: #272833;
-			border-radius: 100%;
-			cursor: default;
-			display: inline-block;
-			height: 6em;
-			line-height: 5.65em;
-			margin: 0 0 2em 0;
-			text-align: center;
-			width: 6em;
-		}
+	.icon.solid:before {
+		font-weight: 900 !important;
+	}
 
-			.icon.major:before {
-				font-size: 2.25em;
-			}
+	.icon.brands:before {
+		font-family: 'Font Awesome 5 Brands' !important;
+	}
 
-			.icon.major.alt {
-				text-decoration: none;
-			}
+	.icon.brands:before:hover {
+		color: #e44c65 !important;
+	}
 
-				.icon.major.alt:before {
-					-moz-osx-font-smoothing: grayscale;
-					-webkit-font-smoothing: antialiased;
-					display: inline-block;
-					font-style: normal;
-					font-variant: normal;
-					text-rendering: auto;
-					line-height: 1;
-					text-transform: none !important;
-					font-family: 'Font Awesome 5 Free';
-					font-weight: 400;
-				}
+	/* .icon.alt {
+		text-decoration: none;
+	} */
 
-				.icon.major.alt:before {
-					color: #272833;
-					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
-				}
+	.icon.alt:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		/* text-transform: none; */
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
 
-				/* .fa-linkedin-in:before:hover{
-					color: #e44c65 !important;
-				} */
+	.icon.alt:before {
+		color: #1c1d26 ;
+		text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
+	}
+
+	.icon.alt:before:hover{
+		color: #e44c65 !important;
+	}
+
+
+.icon.major {
+	background: #272833;
+	border-radius: 100%;
+	cursor: default;
+	display: inline-block;
+	height: 6em;
+	line-height: 5.65em;
+	margin: 0 0 2em 0;
+	text-align: center;
+	width: 6em;
+}
+
+	.icon.major:before {
+		font-size: 2.25em;
+	}
+
+	/* .icon.major.alt {
+		text-decoration: none;
+	} */
+
+	.icon.major.alt:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		/* text-transform: none !important; */
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
+
+	.icon.major.alt:before {
+		color: #272833;
+		text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
+	}
+
+
 
 /* Image */
 
@@ -3472,14 +3493,22 @@ input, select, textarea {
 		background-attachment: fixed;
 		background-color: #D31C5B;
 		background-image: url("../images/logo-api.svg");
+		background-repeat: no-repeat;
+		/* background-size: 1000px 900px; */
 		background-position: center center;
-		background-size: cover;
+		background-size:auto;
 		box-shadow: 0 0.25em 0.5em 0 #D31C5B;
 		min-height: 100vh;
 		position: relative;
 		text-align: center;
-		z-index: 21;
+		z-index: 1;
 	}
+		@media screen and (max-width: 480px) {
+
+			#banner{
+			background-size: 370px 290px;
+			}
+		}
 
 		#banner:before {
 			content: '';
