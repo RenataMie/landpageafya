@@ -13,7 +13,8 @@ const formEvent = form.addEventListener("submit", (event) => {
 });
 
 const sendMail = (mail) => {
-    fetch("", {
+    fetch("https://i52-landingpage.herokuapp.com/send", {
+      mode:"no-cors",
       method: "post",
       body: mail,
     }).then((response) => {

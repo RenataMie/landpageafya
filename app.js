@@ -13,7 +13,12 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-app.use(cors({ origin: "*" }));
+app.use((req,res,next)=>{
+  res.setHeader('Acces-Control-Allow-Origin','*');
+  res.setHeader('Acces-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Acces-Contorl-Allow-Methods','Content-Type','Authorization');
+  next(); 
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,12 +50,20 @@ app.use(function(err, req, res, next) {
 });
 
 const transporter = nodemailer.createTransport({
-  hot: "hotmail",
-  port:587,
+  service: "gmail",
+  host: 'smtp.gmail.com',
+  port:465,
+  secure:true,
+  // logger: true,
+  // debug: true,
+  // secureConnection: false,
   auth: {
-    user: '',
-    pass: ''
+    user: process.env.EMAIL,
+    pass: process.env.PASS
   }, 
+  tls:{
+    rejectUnauthorized:false
+  }
 });
 
 transporter.verify(function (error, success) {
