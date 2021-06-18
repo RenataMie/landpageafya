@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require('express');
 const url = require('url');
 const nodemailer = require('nodemailer');
-const {google} = require('googleapis');
-const OAuth2 = google.auth.OAuth2;
+const mailgun = require('nodemailer-mailgun-transport');
+// const {google} = require('googleapis');
+// const OAuth2 = google.auth.OAuth2;
 const router = express.Router();
 
 
@@ -14,15 +15,22 @@ router.get('/', (req, res) => {
 
 router.post('/send', (req, res) => {
 
-  const myOauth2Client = new OAuth2(
-    process.env.CLIENTEID, process.env.SECRET, "https://developers.google.com/oauthplayground"
-  )
+  const auth = {
+    auth:{
+      api_key:process.env.APIKEY,
+      domain:process.env.DOMAIN
+    }
+  }
+
+  // const myOauth2Client = new OAuth2(
+  //   process.env.CLIENTEID, process.env.SECRET, "https://developers.google.com/oauthplayground"
+  // )
   
-  myOauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH
-  });
+  // myOauth2Client.setCredentials({
+  //   refresh_token: process.env.REFRESH
+  // });
   
-  const myAccessToken= myOauth2Client.getAccessToken();
+  // const myAccessToken= myOauth2Client.getAccessToken();
 
   const email = req.body.email;
   const name = req.body.name;
@@ -30,30 +38,35 @@ router.post('/send', (req, res) => {
 
   const emailMessage = ` ${name} : ${message}.`;
 
+ 
   console.log(emailMessage);
-  res.redirect('/contact_send');
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: 'smtp.gmail.com',
-    port:465,
-    secure:true,
-    // logger: true,
-    // debug: true,
-    // secureConnection: false,
-    auth: {
-      type:"OAuth2",
-      user: process.env.EMAIL,
-      clientId:process.env.CLIENTEID,
-      clientSecret: process.env.SECRET,
-      refreshToken: process.env.REFRESH,
-      accessToken: myAccessToken,
-      expires:3599
-    }, 
-    tls:{
-      rejectUnauthorized:false
-    }
-  });
+  // res.redirect('/contact_send');
+
+  const transporter = nodemailer.createTransport(mailgun(auth))
+  //   service: "Mailgun",
+  //   host: ' smtp.mailgun.org',
+  //   port:2525,
+  //   secure:true,
+  //   // logger: true,
+  //   // debug: true,
+  //   // secureConnection: false,
+  //   auth: {
+  //     // type:"OAuth2",
+  //     // user: process.env.EMAIL,
+  //     // clientId:process.env.CLIENTEID,
+  //     // clientSecret: process.env.SECRET,
+  //     // refreshToken: process.env.REFRESH,
+  //     // accessToken: myAccessToken,
+  //     // expires:3599
+  //     user: process.env.MGUSER,
+  //     pass: process.env.MGPASS
+  //   }, 
+  //   tls:{
+  //     rejectUnauthorized:false
+  //   }
+  // });
+
 
   transporter.verify(function (error, success) {
     if (error) {
@@ -63,12 +76,15 @@ router.post('/send', (req, res) => {
     }
   });
 
+  
+
   var emailOptions = {
     from: email,
     to: process.env.EMAIL,
     subject: 'i52 website',
     text: emailMessage
   };
+
 
   transporter.sendMail(emailOptions, (err, info) => {
     if (err) {

@@ -13,7 +13,6 @@
     "dotenv": "^10.0.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
-    "googleapis": "^76.0.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "multiparty": "^4.2.2",
