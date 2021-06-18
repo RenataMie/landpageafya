@@ -7,22 +7,22 @@ const OAuth2 = google.auth.OAuth2;
 const router = express.Router();
 
 
-const Oauth2Client = new OAuth2(
-  process.env.CLIENTEID, process.env.SECRET, "https://developers.google.com/oauthplayground"
-)
-
-Oauth2Client.setCredentials({
-  refresh_token: process.env.REFRESH
-});
-
-const accessToken= Oauth2Client.getAccessToken();
-
 router.get('/', (req, res) => {
   console.log('Request for contact page recieved');
   res.render('index');
 });
 
 router.post('/send', (req, res) => {
+
+  const myOauth2Client = new OAuth2(
+    process.env.CLIENTEID, process.env.SECRET, "https://developers.google.com/oauthplayground"
+  )
+  
+  myOauth2Client.setCredentials({
+    refresh_token: process.env.REFRESH
+  });
+  
+  const myAccessToken= myOauth2Client.getAccessToken();
 
   const email = req.body.email;
   const name = req.body.name;
@@ -47,12 +47,12 @@ router.post('/send', (req, res) => {
       clientId:process.env.CLIENTEID,
       clientSecret: process.env.SECRET,
       refreshToken: process.env.REFRESH,
-      accessToken: process.env.TOKEN,
-      expires:3599}
-    // }, 
-    // tls:{
-    //   rejectUnauthorized:false
-    // }
+      accessToken: myAccessToken,
+      expires:3599
+    }, 
+    tls:{
+      rejectUnauthorized:false
+    }
   });
 
   transporter.verify(function (error, success) {
