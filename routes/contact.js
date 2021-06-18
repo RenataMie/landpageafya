@@ -10,16 +10,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/send', (req, res) => {
-  var name = req.body.name;
-  var email = req.body.email;
-  var message = req.body.message;
 
-  var emailMessage = ` ${name} : ${message}.`;
+  const email = req.body.email;
+  const name = req.body.name;
+  const message = req.body.message;
+
+  const emailMessage = ` ${name} : ${message}.`;
 
   console.log(emailMessage);
   res.redirect('/contact_send');
 
-  var transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     host: 'smtp.gmail.com',
     port:465,
