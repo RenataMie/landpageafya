@@ -25,6 +25,7 @@ app.set('view engine', 'ejs');
 app.use('/contact', contact);
 app.use('/', pageRouter);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
   console.log('Server is running at localhost:3000');
 });
