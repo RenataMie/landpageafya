@@ -2,7 +2,20 @@ require("dotenv").config();
 const express = require('express');
 const url = require('url');
 const nodemailer = require('nodemailer');
+const {google} = require('googleapis');
+const OAuth2 = google.auth.OAuth2;
 const router = express.Router();
+
+
+const Oauth2Client = new OAuth2(
+  process.env.CLIENTEID, process.env.SECRET, "https://developers.google.com/oauthplayground"
+)
+
+Oauth2Client.setCredentials({
+  refresh_token: process.env.REFRESH
+});
+
+const accessToken= Oauth2Client.getAccessToken();
 
 router.get('/', (req, res) => {
   console.log('Request for contact page recieved');
@@ -29,8 +42,12 @@ router.post('/send', (req, res) => {
     // debug: true,
     // secureConnection: false,
     auth: {
+      type:"OAuth2",
       user: process.env.EMAIL,
-      pass: process.env.PASS
+      clientId:process.env.CLIENTEID,
+      clientSecret: process.env.SECRET,
+      refreshToken: process.env.REFRESH,
+      accessToken: accessToken
     }, 
     tls:{
       rejectUnauthorized:false
