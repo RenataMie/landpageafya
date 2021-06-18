@@ -47,11 +47,12 @@ router.post('/send', (req, res) => {
       clientId:process.env.CLIENTEID,
       clientSecret: process.env.SECRET,
       refreshToken: process.env.REFRESH,
-      accessToken: "ya29.a0AfH6SMBJa1pWcwqrR0-bYaR4Owx4JBCOQbekQHwKsmtyoiWG7aiZUTZCbmTa0cj5J2Pjhm2PVC5vnndRGmYgfMOYs1xxUDLURsEW9LmggRQoSdK8jEDAbvFbMP3yajFV6aDrfHkmaqQcCcpGUzN2i0iWTmFN"
-    }, 
-    tls:{
-      rejectUnauthorized:false
-    }
+      accessToken: process.env.TOKEN,
+      expires:3599}
+    // }, 
+    // tls:{
+    //   rejectUnauthorized:false
+    // }
   });
 
   transporter.verify(function (error, success) {
