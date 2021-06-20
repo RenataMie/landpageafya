@@ -137,7 +137,7 @@ input, select, textarea {
 		color: #ffffff;
 		font-weight: 300;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		margin: 0 0 0.4em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -2180,7 +2180,7 @@ input, select, textarea {
 	}
 
 	header.major {
-		margin: 0 0 4em 0;
+		margin: 0 0 2em 0;
 		position: relative;
 		text-align: center;
 	}
@@ -2566,6 +2566,7 @@ input, select, textarea {
 		.image img {
 			border-radius: 4px;
 			display: block;
+			
 		}
 
 		.image.left {
@@ -2938,7 +2939,7 @@ input, select, textarea {
 		input[type="reset"].primary,
 		input[type="button"].primary,
 		.button.primary {
-			background-color: #e44c65;
+			background-color: #D31C5B;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -3009,11 +3010,13 @@ input, select, textarea {
 	.spotlight {
 		background-attachment: fixed;
 		background-position: center center;
-		background-size: cover;
+		background-size: 70%;
+		background-repeat: no-repeat;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
 		height: 100vh;
 		overflow: hidden;
 		position: relative;
+		
 	}
 
 		.spotlight:nth-last-of-type(1) {
@@ -3112,6 +3115,7 @@ input, select, textarea {
 
 			.spotlight .image.main img {
 				position: relative;
+	
 			}
 
 		.spotlight .content {
@@ -3237,7 +3241,7 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		padding: 4em 0 4em 0;
+		padding: 2em 0 4em 0;
 	}
 
 		.wrapper.style2 {
@@ -4130,7 +4134,7 @@ input, select, textarea {
 		/* Wrapper */
 
 			.wrapper {
-				padding: 4em 1.25em 1em 1.25em;
+				padding: 3em 1.25em 1em 1.25em;
 			}
 
 		/* Banner */
